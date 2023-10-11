@@ -60,3 +60,35 @@ instancia <<, empty? y each.
     Ahora escribimos el ejemplo de uso y lo ejecutamos, observamos que los resultados demuestran el funcionamiento de las funciones de la clase BinaryTree.
 
     ![Alt text](Imagenes/image-4.png)
+
+# **Parte 2: **
+
+# **Parte 3: Rail**
+Primero, optamos por verificar si las configuraciones de nuestro entorno son las adecuadas para poder realizar sta actividad:
+Tuvimos un inconveniente con la versión de nuestro Bundler ya que tenemos una versión de 2.4.20 y se requeria una version >=1.17 y <2.0. 
+
+![Alt text](Imagenes/image5.png)
+
+Por ende ejecutamos el comando 
+
+```
+gem install bundler --version=1.17.3
+```
+
+![Alt text](Imagenes/image6.png)
+
+Al realizar la instalación de esta versión de bundle, se tuvo los siguientes inconvenientes 
+![Alt text](image.png)
+
+El error que se obtuvo fue por no configurar bien el archivo gemfile, una vez configurado correctamente nuestro entorno se procede a continuar con el desplegue de la aplicación: 
+
+![Alt text](image-1.png)
+
+### Creación una nueva aplicación Rails
+
+Creamos una nueva aplicación Rails con el comando: 
+```
+rails new rottenpotatoes --skip-test-unit --skip-turbolinks --skip-spring
+```
+
+![Alt text](image-2.png)
