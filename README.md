@@ -261,3 +261,26 @@ rails generate scaffold_controller Movie title rating description release_date -
 ![Alt text](image-29.png)
 
 Este comando generará el controlador MoviesController con acciones CRUD y las vistas asociadas para el modelo Movie.
+
+![Alt text](image-30.png)
+
+Ahora tenemos una aplicación que funciona. Finalmente, una vez que la aplicación esté funcionando, podemos considerar implementarla en producción.
+
+### Cambiar la base de datos para producción.
+
+Abrimos nuestro archivo Gemfile y agregamos las siguientes líneas en nuestro Gemfile, bajo el grupo de producción:
+
+```
+group :production do
+  gem 'pg', '~> 0.21' # Heroku deployment
+  gem 'rails_12factor'
+end
+```
+
+Luego, buscamos la línea que especifica la gema 'sqlite3' en nuestro Gemfile y la movemos al grupo de desarrollo y prueba de esta manera:
+
+```
+group :development, :test do
+  gem 'sqlite3', '~> 1.3.0'
+end
+```
