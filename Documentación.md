@@ -61,7 +61,38 @@ instancia <<, empty? y each.
 
     ![Alt text](Imagenes/i4.png)
 
-# **Parte 2: **
+# **Parte 2:**
+
+### Redirigir a la acción "show" después de una creación exitosa
+
+En nuestro controlador MoviesController, después de crear la película exitosamente, redirigimos a la acción "show" de la película recién creada. Asegurémonos de obtener el objeto de la película recién creada. Aquí está cómo hicimos el cambio:
+![Alt text](Imagenes/p1.png)
+
+###  Mostrar y editar el campo "description" en las vistas "New" y "Edit"
+
+Para mostrar y editar el campo "description" en las vistas "New" y "Edit," modificamos las vistas correspondientes. Abrimos los archivos new.html.erb y edit.html.erb en la carpeta app/views/movies y asegurémonos de incluir el campo "description" en los formularios de la siguiente manera:
+
+**Cambios en el archivo show.html.haml:**
+
+Abre el archivo app/views/movies/show.html.haml y agrega un enlace que permita la edición del campo "description." Puedes hacerlo de la siguiente manera:
+
+![Alt text](Imagenes/p3.png)
+
+Agregamos la línea = link_to 'Edit Description', edit_movie_path(@movie) que permite editar la descripción de la película desde la vista de "show."
+
+**Cambios en el archivo index.html.haml:**
+
+Agregamos la línea %td= movie.description para mostrar la descripción en la tabla de la vista index.
+
+ ![Alt text](Imagenes/p2.png) 
+
+### Manejar películas que no existen en la acción "show" 
+
+Para manejar películas que no existen en la acción "show," modificamos el método show de la siguiente manera:
+
+![Alt text](Imagenes/p4.png)
+
+De esta manera método show manejará excepciones de ActiveRecord::RecordNotFound y redirigirá al usuario a la vista "Index" con un mensaje de error si intenta acceder a una película que no existe. 
 
 # **Parte 3: Rail**
 Primero, optamos por verificar si las configuraciones de nuestro entorno son las adecuadas para poder realizar sta actividad:
