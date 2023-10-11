@@ -84,7 +84,7 @@ El error que se obtuvo fue por no configurar bien el archivo gemfile, una vez co
 
 ![Alt text](image-1.png)
 
-### Creación una nueva aplicación Rails
+## Creación una nueva aplicación Rails
 
 Creamos una nueva aplicación Rails llamada "rottenpotatoes" con el comando: 
 
@@ -173,3 +173,91 @@ Ahora, aplicamos la migración a la base de datos de desarrollo ejecutando el si
 ```
 rails db:migrate
 ```
+Esto ejecutará la migración y creará la tabla "movies" en la base de datos de desarrollo.
+
+![Alt text](image-16.png)
+
+No salio esto porque al usar una version de rails 7.1.0 y la migración no está utilizando la sintaxis.
+
+Una vez corregido ese error, vemos que esto ejecutará la migración y creará la tabla "movies" en la base de datos de desarrollo.
+
+![Alt text](image-17.png)
+
+Para asegurarnos de que la base de datos de prueba refleje los cambios en el esquema, ejecutamos el siguiente comando:
+
+```
+rails db:test:prepare
+```
+Esto actualizará la base de datos de prueba para que coincida con la estructura de la base de datos de desarrollo.
+
+### Crea el modelo inicial e inicializa la base de datos
+Creamos el modelo ActiveRecord para la tabla "movies", para esto creamos un archivo app/models/movie.rb con estas dos lineas.
+```ruby
+class Movie < ActiveRecord::Base
+end
+```
+ Esta definición del modelo es suficiente para indicar a Rails que estamos trabajando con la tabla "movies" en la base de datos.
+
+![Alt text](image-18.png)
+ Para verificar que el modelo "Movie" está definido correctamente, abrimos la consola de Rails ejecutando el siguiente comando:
+
+```
+rails console
+```
+Una vez en la consola, simplemente escribimos Movie.new. Esto debería crear una nueva instancia de la clase Movie con atributos nulos.
+
+![Alt text](image-19.png)
+
+Luego, intentamos ejecutar Movie.first para verificar si hay películas en la base de datos. Como aún no hemos agregado ninguna película, esto debería devolver "nil".
+
+![Alt text](image-20.png)
+
+Para agregar datos iniciales a la base de datos, copiamos el código que nos proporciona la actividad en el archivo db/seeds.rb. Este código agrega películas a la base de datos utilizando el modelo "Movie".  
+
+![Alt text](image-21.png)
+
+Después de agregar los datos iniciales a db/seeds.rb, ejecutamos el siguiente comando para llenar la base de datos con estos datos:
+
+```
+rake db:seed
+```
+![Alt text](image-22.png)
+
+Ahora, podemos volver a la consola Rails ejecutando rails console y ejecutar Movie.first para verificar que las películas se han agregado correctamente a la base de datos. 
+
+![Alt text](image-23.png)
+
+## Crear rutas, acciones y vistas CRUD para películas
+ Ejecutamos la aplicación nuevamente (como se explicó en la Parte 1) y, en lugar de visitar la página de inicio, intentamos visitar /movies.  
+ ![Alt text](image-24.png)
+
+ Verificamos que la aplicación informa que no hay rutas en nuestra nueva aplicación.Esto ocurre debido a que no hemos indicado en el programa qué contenido debe mostrarse cuando accedemos a la ruta /movies. Para solucionar este problema, configuraremos las rutas en el archivo config/routes de nuestra aplicación.
+
+### Crear rutas CRUD
+
+
+ Editamos el archivo config/routes.rb. Reemplazamos el contenido del archivo routes.rb con el siguiente código y lo guardamos.
+
+ ![Alt text](image-26.png)
+ 
+ Esto configura rutas RESTful para las cuatro acciones CRUD básicas en el modelo de películas. También redirige la ruta raíz ("/") a la página principal de listado de películas.
+
+Ejecutamos rails routes para verificar que la ruta GET /movies llamará a la acción index del controlador MoviesController.
+
+![Alt text](image-27.png)
+
+Recargamos la página en el navegador y deberíamos ver un error diferente que indica que la constante MoviesController no está inicializada. Esto es una buena señal, ya que significa que nuestra ruta está funcionando, pero necesitamos definir el controlador.
+
+![Alt text](image-28.png)
+
+Para crear tanto el archivo del controlador como las vistas asociadas, ejecutamos el siguiente comando:
+
+
+```
+rails generate scaffold_controller Movie title rating description release_date --skip-test
+
+```
+
+![Alt text](image-29.png)
+
+Este comando generará el controlador MoviesController con acciones CRUD y las vistas asociadas para el modelo Movie.
