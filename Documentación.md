@@ -284,3 +284,12 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.0'
 end
 ```
+Como se muestra a continuación, logramos modificar nuestro gemfile
+
+![Alt text](image.png)
+
+Ejecutamos el comando bundle install para poder lograr los cambios 
+
+![Alt text](image-1.png)
+
+ 
