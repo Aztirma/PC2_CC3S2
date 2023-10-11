@@ -3,7 +3,7 @@
 
 https://github.com/Aztirma/PC2_CC3S2/tree/main/P1
 
-* En el siguiente link se encuentra los codigos de la apliación de la PARTE 3 de la práctica:
+* En el siguiente link se encuentra los codigos de la aplicación de la PARTE 3 de la práctica:
 
 https://github.com/Aztirma/rottenpotatoes
 
