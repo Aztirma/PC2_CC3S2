@@ -86,9 +86,54 @@ El error que se obtuvo fue por no configurar bien el archivo gemfile, una vez co
 
 ### Creación una nueva aplicación Rails
 
-Creamos una nueva aplicación Rails con el comando: 
+Creamos una nueva aplicación Rails llamada "rottenpotatoes" con el comando: 
+
 ```
 rails new rottenpotatoes --skip-test-unit --skip-turbolinks --skip-spring
 ```
 
 ![Alt text](image-2.png)
+
+Durante la ejecución de este comando, vimos varios mensajes sobre la creación de archivos y finalizará con "run bundle install". Esto instalará las gemas especificadas en el archivo Gemfile. Esto se muestra a continuación:
+
+![Alt text](image-3.png)
+
+Una vez que se completamos la instalación de las gemas, cambiamos al directorio de nuestra nueva aplicación "rottenpotatoes" con el siguiente comando:
+
+```
+cd rottenpotatoes
+```
+
+**¿Qué pasa con ese mensaje run bundle install?**
+
+Para poder responder esta pregunta, procedemos a ejecutar el comando mencionado.
+
+![Alt text](image-4.png)
+
+Al ejecutsr este comando, nos informa que hemos completado la instalación de nuestras gemas. Hemos agregado un total de 63 gemas a nuestro proyecto, y estas gemas satisfacen las dependencias que hemos especificado en nuestro archivo Gemfile.
+
+![Alt text](image-5.png)
+
+Continuando, nos mencionan que Rails utiliza la base de datos SQLite3 como predeterminada para el desarrollo y las pruebas, nos pide que en nuestro archivo gemfile especifiquemos la version con la que trabajaremos en SQLite3, en este caso 
+
+```
+gema 'sqlite3', '~> 1.3.0'
+```
+
+Después de realizar estos cambios en el Gemfile, guardamos el archivo y ejecutamos el siguiente comando para actualizar las gemas:
+
+```
+bundle update
+```
+
+IMAGEN
+
+Tenemos que asegurarnos que la salida contenga líneas como "Fetching sqlite3 1.3.x" e "Installing sqlite3 1.3.x", donde "x" es cualquier versión menor.
+
+IMAGEN
+
+Para verificar que todo funciona correctamente, iniciamos la aplicación localmente ejecutando el siguiente comando en la terminal:
+
+```
+rails server
+```
