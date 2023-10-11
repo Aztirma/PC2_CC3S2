@@ -125,15 +125,51 @@ Después de realizar estos cambios en el Gemfile, guardamos el archivo y ejecuta
 ```
 bundle update
 ```
+![Alt text](image-7.png)
 
-IMAGEN
 
 Tenemos que asegurarnos que la salida contenga líneas como "Fetching sqlite3 1.3.x" e "Installing sqlite3 1.3.x", donde "x" es cualquier versión menor.
-
-IMAGEN
+![Alt text](image-8.png)
 
 Para verificar que todo funciona correctamente, iniciamos la aplicación localmente ejecutando el siguiente comando en la terminal:
 
 ```
 rails server
+```
+![Alt text](image-9.png)
+
+Abrimos nuestro navegador web y visitamos  la página de inicio de la aplicación en localhost:3000. 
+
+![Alt text](image-10.png)
+
+Se puede observar la página de inicio genérica de Ruby on Rails, con esto hemos iniciado correctamente nuestra aplicación localmente.
+
+### Base de datos en diferentes entornos
+En esta sección nos indica que Rails define tres entornos (production, development y test) para gestionar bases de datos separadas y evitar que errores en el código afecten accidentalmente la base de datos de producción.
+### Crear la base de datos
+En esta sección nos indica que al momento de crear una aplicación Rails, debemos crear una base de datos de desarrollo mediante migraciones para garantizar la consistencia y repetibilidad de los cambios en la estructura de la base de datos en todos los entornos.
+
+### Crear y aplicar la migración
+Para crear una migración y aplicarla en nuestra  aplicación Rails para agregar una nueva tabla, seguimos los siguientes  estos pasos:
+
+Creamos una migración que describe los cambios que queremos realizar en la base de datos. En este caso, estamos creando una tabla llamada "movies" para almacenar información sobre las películas. Ejecutamos el siguiente comando para generar una migración llamada "create_movies":
+
+```
+rails generate migration create_movies
+```
+Esto generará un archivo en el directorio db/migrate con un nombre que comienza con la fecha y hora de creación y termina con "create_movies.rb". 
+
+![Alt text](image-11.png)
+
+Buscamos el archivo en nuestro directorio y lo abrimos, el cual tiene la siguiente estructura: 
+
+![Alt text](image-14.png)
+
+Completamos el codigo con las lineas proporcionadas y lo guardamos. Este código define una migración que crea la tabla "movies" con columnas para el título, la calificación, la descripción y la fecha de lanzamiento de las películas.
+
+![Alt text](image-15.png)
+
+Ahora, aplicamos la migración a la base de datos de desarrollo ejecutando el siguiente comando:
+```
+rails db:migrate
 ```
