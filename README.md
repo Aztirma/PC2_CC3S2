@@ -16,7 +16,7 @@
     
     Realizamos nuestro código ruby en Jupyter Notebook y se puede observar que muestra la salida esperada.
 
-    ![Alt text](image.png)
+    ![Alt text](Imagenes/image.png)
 
 2. Nos piden definir una clase colección llamada BinaryTree que ofrezca los métodos de
 instancia <<, empty? y each.
@@ -33,11 +33,11 @@ instancia <<, empty? y each.
 
     Realizamos nuestro código ruby en Jupyter Notebook como se muestra a continuación, al ejecutarlo nos devuelve each?
 
-    ![Alt text](image-1.png)
+    ![Alt text](Imagenes/image-1.png)
 
     Ahora escribimos el ejemplo de uso para comprobar si la función esta bien implementada, podemos observar que nos devuelve false, esto debido a que nuestro arbol no está vacio. 
 
-    ![Alt text](image-2.png)
+    ![Alt text](Imagenes/image-2.png)
 
 3. Nos piden extender nuestra clase BinaryTree para que ofrezca los siguientes métodos. 
 
@@ -55,8 +55,8 @@ instancia <<, empty? y each.
     
     Realizamos nuestro código ruby en Jupyter Notebook como se muestra a continuación
 
-    ![Alt text](image-3.png)
+    ![Alt text](Imagenes/image-3.png)
 
     Ahora escribimos el ejemplo de uso y lo ejecutamos, observamos que los resultados demuestran el funcionamiento de las funciones de la clase BinaryTree.
 
-    ![Alt text](image-4.png)
+    ![Alt text](Imagenes/image-4.png)
