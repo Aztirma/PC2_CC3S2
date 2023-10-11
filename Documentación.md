@@ -286,10 +286,24 @@ end
 ```
 Como se muestra a continuación, logramos modificar nuestro gemfile
 
-![Alt text](image.png)
+![Alt text](Imagenes/0.png)
 
 Ejecutamos el comando bundle install para poder lograr los cambios 
 
-![Alt text](image-1.png)
+![Alt text](Imagenes/1.png)
 
- 
+ ### Despligue Heroku
+
+Iniciamos sesión 
+
+ ![Alt text](Imagenes/2.png)
+
+ Creamos la aplicación en Heroku 
+
+ ![Alt text](Imagenes/4.png)
+
+Desplegamos la aplicación, pero hubo ciertos errores al momento de ello.
+![Alt text](Imagenes/imagef.png) 
+
+Según revisando el Build Log, parece que hubo un problema debio a la versión del blundler, ya que Heroku espera trabajar con una versión de 2.3.25 pero nuestra versión es 2.4.20. Debido a que se tuvo problemas al principio por el problema de las versiones, se creyo que si cambiamos la versión del bundler causaria nuevamente una incompatibilidad entre las versiones de las gemas usadas en el proyecto.
+La aplicación se pudo levantar de manera local y se logro detallar paso a paso el proceso de esta, de las implementacions, de la creación de base de datos y rutas, más no se logro desplegar la aplicación en Heroku.
